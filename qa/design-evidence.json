@@ -1,0 +1,59 @@
+{
+  "contract": "Hoang Yen Beauty & Spa static Czech landing page. Primary user job: understand the salon's services and prices, then reserve or call. Primary action: Rezervovat termín. Hierarchy: premium hero, introduction, services, detailed treatments and prices, promotions, gallery, contact. Visual direction: calm European spa editorial with warm limestone, cream and champagne tones; sharp intentional crops; motion at Animate UI's 'more' level while respecting prefers-reduced-motion. The navigation, reservation actions, pricing tabs, mobile menu and gallery lightbox must remain keyboard accessible. No horizontal overflow or clipped primary content is allowed at 390x844, 768x1024 or 1440x900.",
+  "targetViewports": [
+    "390x844",
+    "768x1024",
+    "1440x900"
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Chrome Lighthouse navigation audits scored Accessibility 100, Best Practices 100, SEO 100 and Agentic Browsing 100 on both desktop and mobile after fixes. Keyboard checks confirmed mobile menu focus entry/return with Escape, ArrowRight pricing-tab selection, and Enter/Escape gallery lightbox open/close with focus restoration. Semantic heading order and accessible label/name matching were corrected. CSS includes a prefers-reduced-motion path that removes travel and continuous motion."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Rendered and visually reviewed exact 390x844, 768x1024 and 1440x900 captures. The mobile viewport has no horizontal overflow, keeps the hero title and action buttons inside the viewport, and uses the compact bottom action bar. Tablet and desktop preserve balanced hero crops, readable actions and navigation. Service cards and gallery were additionally inspected at mobile and desktop breakpoints without clipping."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "not-applicable",
+      "reason": "The page is a static brochure with no internal asynchronous data view or submit flow that exposes a loading state; image loading reserves dimensions to prevent layout shift."
+    },
+    "empty": {
+      "status": "not-applicable",
+      "reason": "All service, pricing, promotion, gallery and contact content is authored statically; there is no user-dependent collection that can be empty."
+    },
+    "error": {
+      "status": "not-applicable",
+      "reason": "There is no internal request or form transaction to render an application error state; reservation and phone actions hand off to external/native destinations."
+    },
+    "partial": {
+      "status": "not-applicable",
+      "reason": "The static page has no incremental or partially returned dataset; each authored section is available with the document."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "The document, stylesheet, script, premium hero and service imagery loaded successfully from the local server; navigation, pricing tabs, mobile menu, gallery lightbox, reservation links and contact calls remained operational during browser QA."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "The website does not request account, camera, location, notification or other runtime permissions."
+    }
+  },
+  "renderedEvidence": [
+    {
+      "viewport": "390x844",
+      "artifact": "screenshots/mobile-390x844.png",
+      "observation": "Exact mobile viewport: title wraps deliberately without clipping, hamburger is visible, two primary actions fit, hours stay on one line, bottom call/reserve/route controls remain reachable, and the warm hero crop keeps strong contrast."
+    },
+    {
+      "viewport": "768x1024",
+      "artifact": "screenshots/tablet-768x1024.png",
+      "observation": "Exact tablet viewport: single-line brand title, centered action hierarchy, balanced symmetric image crop and readable navigation affordances with no horizontal overflow."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "screenshots/desktop-1440x900.png",
+      "observation": "Exact desktop viewport: complete navigation, large editorial hero typography, strong reserve CTA, restrained glass/gradient treatment and intentionally framed spa interior all remain above the fold."
+    }
+  ]
+}
