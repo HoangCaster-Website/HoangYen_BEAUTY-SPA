@@ -484,6 +484,82 @@
     }
 
     /* -------------------------------------------------------------------------
+       11. WHATSAPP BOOKING FORM
+       ------------------------------------------------------------------------- */
+    function initWhatsAppBooking() {
+        var form = qs('#whatsappBookingForm');
+        if (!form) return;
+
+        var dateInput = qs('#bookingDate', form);
+        var serviceInput = qs('#bookingService', form);
+        var status = qs('#bookingStatus', form);
+
+        if (dateInput) {
+            var today = new Date();
+            var localToday = [
+                today.getFullYear(),
+                String(today.getMonth() + 1).padStart(2, '0'),
+                String(today.getDate()).padStart(2, '0')
+            ].join('-');
+            dateInput.min = localToday;
+        }
+
+        qsa('[data-booking-service]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                var requestedService = this.getAttribute('data-booking-service');
+                if (!serviceInput || !requestedService) return;
+
+                var matchingOption = qsa('option', serviceInput).some(function (option) {
+                    return option.value === requestedService;
+                });
+
+                if (matchingOption) serviceInput.value = requestedService;
+            });
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            form.classList.add('was-validated');
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                if (status) status.textContent = 'Prosím vyplňte všechna povinná pole.';
+                return;
+            }
+
+            form.classList.remove('was-validated');
+
+            var formData = new FormData(form);
+            var rawDate = String(formData.get('date') || '');
+            var dateParts = rawDate.split('-');
+            var formattedDate = rawDate;
+
+            if (dateParts.length === 3) {
+                formattedDate = dateParts[2] + '. ' + dateParts[1] + '. ' + dateParts[0];
+            }
+
+            var note = String(formData.get('note') || '').trim();
+            var messageLines = [
+                'Dobrý den, ráda/rád bych si rezervoval/a termín v Hoang Yen Beauty & Spa.',
+                '',
+                'Jméno: ' + String(formData.get('name') || '').trim(),
+                'Telefon: ' + String(formData.get('phone') || '').trim(),
+                'Služba: ' + String(formData.get('service') || '').trim(),
+                'Preferovaný termín: ' + formattedDate,
+                'Preferovaný čas: ' + String(formData.get('time') || '').trim()
+            ];
+
+            if (note) messageLines.push('Poznámka: ' + note);
+
+            messageLines.push('', 'Prosím o potvrzení dostupnosti. Děkuji.');
+
+            var whatsappUrl = 'https://wa.me/420722688168?text=' + encodeURIComponent(messageLines.join('\n'));
+            if (status) status.textContent = 'Otevírám WhatsApp…';
+            window.location.href = whatsappUrl;
+        });
+    }
+
+    /* -------------------------------------------------------------------------
        0. PAGE LOAD INTRO (PRELOADER)
        ------------------------------------------------------------------------- */
     function initPageIntro() {
@@ -587,5 +663,6 @@
         initGalleryLightbox();
         initMobileBottomBar();
         initBackToTop();
+        initWhatsAppBooking();
     });
 })();
