@@ -1137,7 +1137,11 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.35;
     color: var(--text-muted);
     border-radius: calc(var(--border-radius) - 5px);
-    transition: var(--transition-fast);
+    transition:
+        color 180ms ease-out,
+        background-color 180ms ease-out,
+        box-shadow 180ms ease-out,
+        transform 180ms ease-out;
 }
 
 .cenik-tab:hover {
@@ -1211,7 +1215,9 @@ h1, h2, h3, h4, h5, h6 {
     gap: 12px;
     padding: 12px 0;
     border-bottom: 1px solid rgba(111, 70, 43, 0.1);
-    transition: var(--transition-fast);
+    transition:
+        background-color 180ms ease-out,
+        transform 180ms ease-out;
 }
 
 .price-row:last-child {
@@ -1219,9 +1225,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-row:hover {
-    padding-left: 6px;
-    padding-right: 6px;
     background-color: rgba(247, 240, 228, 0.65);
+    transform: translateX(3px);
 }
 
 .price-row .service-name {
@@ -3185,19 +3190,162 @@ button:focus-visible,
     -webkit-backdrop-filter: blur(14px);
 }
 
+/* Premium pricing surface: quieter layers, clearer hierarchy and stable rows. */
+.cenik {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 18%, rgba(216, 186, 122, 0.2), transparent 24rem),
+        radial-gradient(circle at 92% 82%, rgba(184, 137, 62, 0.1), transparent 26rem),
+        linear-gradient(180deg, #f8f2e8 0%, #f4ecdf 100%);
+}
+
+.cenik::before {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    top: 80px;
+    right: -250px;
+    border: 1px solid rgba(184, 137, 62, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cenik .container {
+    position: relative;
+    z-index: 1;
+}
+
 .cenik-tabs {
-    padding: 6px;
-    border: 1px solid rgba(184, 137, 62, 0.18);
-    background: rgba(255, 255, 255, 0.66);
-    box-shadow: 0 14px 38px rgba(41, 26, 18, 0.07);
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(184, 137, 62, 0.2);
+    border-radius: 22px;
+    background: rgba(255, 252, 247, 0.78);
+    box-shadow:
+        0 18px 46px rgba(41, 26, 18, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .cenik-tab {
-    border-radius: 999px;
+    min-height: 54px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    letter-spacing: 0.055em;
+}
+
+.cenik-tab:hover {
+    border-color: rgba(184, 137, 62, 0.16);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.cenik-tab:active {
+    transform: scale(0.98);
 }
 
 .cenik-tab.active {
-    box-shadow: 0 8px 24px rgba(143, 102, 38, 0.24);
+    border-color: rgba(216, 186, 122, 0.26);
+    background: linear-gradient(145deg, #352117, #21140e);
+    box-shadow:
+        0 10px 26px rgba(41, 26, 18, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cenik-panel {
+    gap: 18px;
+    padding: 20px;
+    border: 1px solid rgba(184, 137, 62, 0.16);
+    border-radius: 30px;
+    background: rgba(255, 253, 249, 0.72);
+    box-shadow:
+        0 28px 70px rgba(72, 45, 28, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.cenik-panel.active {
+    animation: cenikPanelIn 360ms var(--ease-out) both;
+}
+
+@keyframes cenikPanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cenik-group {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    border: 1px solid rgba(184, 137, 62, 0.18);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(252, 246, 236, 0.86));
+    box-shadow:
+        0 12px 30px rgba(72, 45, 28, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.cenik-group::before {
+    content: '';
+    position: absolute;
+    inset: 0 24px auto;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(184, 137, 62, 0.68), transparent);
+}
+
+.cenik-group-title {
+    margin: 0 0 10px;
+    padding: 0 0 15px;
+    border-bottom: 1px solid rgba(184, 137, 62, 0.2);
+    font-size: clamp(1.15rem, 2vw, 1.32rem);
+    font-weight: 600;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.price-row {
+    min-height: 55px;
+    margin: 0 -10px;
+    padding: 12px 10px;
+    border-color: rgba(111, 70, 43, 0.09);
+    border-radius: 10px;
+}
+
+.price-row .service-name {
+    line-height: 1.45;
+    text-wrap: pretty;
+}
+
+.price-row .duration {
+    padding: 5px 9px;
+    border: 1px solid rgba(143, 102, 38, 0.24);
+    border-radius: 999px;
+    background: rgba(247, 238, 223, 0.96);
+    color: var(--brown);
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.price-row .price {
+    min-width: 78px;
+    justify-self: end;
+    color: #7a511b;
+    font-size: 1.13rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    text-align: right;
 }
 
 /* Modern asymmetric gallery; all photos use crop-safe object-fit. */
@@ -3407,6 +3555,48 @@ button:focus-visible,
         gap: 18px;
     }
 
+    .cenik {
+        padding-block: 88px;
+    }
+
+    .cenik-tabs {
+        gap: 6px;
+        padding: 6px;
+        border-radius: 18px;
+    }
+
+    .cenik-tab {
+        min-height: 50px;
+        padding-inline: 8px;
+        border-radius: 12px;
+    }
+
+    .cenik-panel {
+        gap: 12px;
+        padding: 12px;
+        border-radius: 24px;
+    }
+
+    .cenik-group {
+        padding: 19px;
+        border-radius: 16px;
+    }
+
+    .price-row {
+        min-height: 58px;
+        margin-inline: -7px;
+        padding: 11px 7px;
+    }
+
+    .price-row:hover {
+        transform: none;
+    }
+
+    .price-row .duration {
+        width: max-content;
+        margin-top: 3px;
+    }
+
     .service-image,
     .service-card:nth-child(-n + 2) .service-image {
         height: min(66vw, 310px);
@@ -3456,6 +3646,33 @@ button:focus-visible,
     .gallery {
         grid-auto-rows: 156px;
     }
+
+    .cenik-tabs {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cenik-tab {
+        font-size: 0.7rem;
+    }
+
+    .cenik-panel {
+        margin-inline: -4px;
+        padding: 9px;
+        border-radius: 20px;
+    }
+
+    .cenik-group {
+        padding: 17px 15px;
+    }
+
+    .price-row {
+        gap: 4px 9px;
+    }
+
+    .price-row .price {
+        min-width: 72px;
+        font-size: 1.08rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3465,6 +3682,10 @@ button:focus-visible,
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
+    }
+
+    .cenik-panel.active {
+        animation: none;
     }
 
     .hero-media,
