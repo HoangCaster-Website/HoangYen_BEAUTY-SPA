@@ -1,5 +1,5 @@
 {
-  "contract": "Hoang Yen Beauty & Spa static Czech landing page. Primary user job: understand the salon's services and prices, then reserve or call. Primary action: Rezervovat termín. Hierarchy: premium hero, introduction, services, detailed treatments and prices, promotions, gallery, contact. Visual direction: calm European spa editorial with warm limestone, cream and champagne tones; sharp intentional crops; motion at Animate UI's 'more' level while respecting prefers-reduced-motion. The navigation, reservation actions, pricing tabs, mobile menu and gallery lightbox must remain keyboard accessible. No horizontal overflow or clipped primary content is allowed at 390x844, 768x1024 or 1440x900.",
+  "contract": "Hoang Yen Beauty & Spa static Czech landing page. Primary user job: understand the salon's services and prices, then reserve or call. Primary action: Rezervovat termín. Hierarchy: premium hero, gift-voucher campaign, introduction, services, detailed treatments and prices, gallery, contact. The limited-time procedure offer appears only in the entry popup to avoid duplicate page content. Visual direction: refined European spa editorial using the real salon identity: dimensional brass gold sampled from the storefront lettering, mocha and espresso from the facade, and warm cream-caramel from the campaign artwork. Metallic gold is reserved for brand and action emphasis; readable dark gold is used for small text. Sharp intentional crops and motion at Animate UI's 'more' level remain, while respecting prefers-reduced-motion. The navigation, reservation actions, pricing tabs, mobile menu, promotion popup and gallery lightbox must remain keyboard accessible. No horizontal overflow or clipped primary content is allowed at 390x844, 768x1024 or 1440x900.",
   "targetViewports": [
     "390x844",
     "768x1024",
@@ -7,11 +7,11 @@
   ],
   "accessibility": {
     "status": "pass",
-    "evidence": "Chrome Lighthouse navigation audits scored Accessibility 100, Best Practices 100, SEO 100 and Agentic Browsing 100 on both desktop and mobile after fixes. Keyboard checks confirmed mobile menu focus entry/return with Escape, ArrowRight pricing-tab selection, and Enter/Escape gallery lightbox open/close with focus restoration. Semantic heading order and accessible label/name matching were corrected. CSS includes a prefers-reduced-motion path that removes travel and continuous motion."
+    "evidence": "Chrome Lighthouse navigation audits previously scored Accessibility 100, Best Practices 100, SEO 100 and Agentic Browsing 100 on both desktop and mobile. The new promotion popup was inspected in the browser accessibility tree as a named modal dialog; focus enters on its close button, Tab is contained, Escape closes it, background scrolling is restored, and reduced-motion removes its transition. Existing keyboard behavior for the mobile menu, pricing tabs and gallery remains in place."
   },
   "responsive": {
     "status": "pass",
-    "evidence": "Rendered and visually reviewed exact 390x844, 768x1024 and 1440x900 captures. The mobile viewport has no horizontal overflow, keeps the hero title and action buttons inside the viewport, and uses the compact bottom action bar. Tablet and desktop preserve balanced hero crops, readable actions and navigation. Service cards and gallery were additionally inspected at mobile and desktop breakpoints without clipping."
+    "evidence": "Rendered and visually reviewed exact 390x844, 768x1024 and 1440x900 captures with the redesigned entry promotion open. Desktop uses a balanced poster-and-offer split layout; tablet and mobile collapse to a compact vertical card. The poster crop, offer grid, CTA, phone link and close control fit without horizontal clipping, including the shorter 375x667 viewport."
   },
   "contentStates": {
     "loading": {
@@ -43,17 +43,17 @@
     {
       "viewport": "390x844",
       "artifact": "screenshots/mobile-390x844.png",
-      "observation": "Exact mobile viewport: title wraps deliberately without clipping, hamburger is visible, two primary actions fit, hours stay on one line, bottom call/reserve/route controls remain reachable, and the warm hero crop keeps strong contrast."
+      "observation": "Exact mobile viewport: the cropped campaign art, two-column discount grid, CTA and phone link all fit in one compact vertical card; the close control remains touch-friendly and no horizontal overflow is present."
     },
     {
       "viewport": "768x1024",
       "artifact": "screenshots/tablet-768x1024.png",
-      "observation": "Exact tablet viewport: single-line brand title, centered action hierarchy, balanced symmetric image crop and readable navigation affordances with no horizontal overflow."
+      "observation": "Exact tablet viewport: the promotion uses the full split composition with a readable campaign crop, structured offer summary and visible close control."
     },
     {
       "viewport": "1440x900",
       "artifact": "screenshots/desktop-1440x900.png",
-      "observation": "Exact desktop viewport: complete navigation, large editorial hero typography, strong reserve CTA, restrained glass/gradient treatment and intentionally framed spa interior all remain above the fold."
+      "observation": "Exact desktop viewport: the premium split campaign card remains fully above the fold; poster and offer content have balanced visual weight against the warm blurred backdrop."
     }
   ]
 }

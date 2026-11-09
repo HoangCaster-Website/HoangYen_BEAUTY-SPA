@@ -100,6 +100,48 @@
     </div>
 
     <!-- ============================================
+         WELCOME PROMOTION POPUP
+    ============================================= -->
+    <div class="promo-popup" id="promoPopup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="promoPopupTitle" hidden>
+        <button class="promo-popup-backdrop" type="button" tabindex="-1" aria-label="Zavřít aktuální nabídku" data-promo-close></button>
+        <div class="promo-popup-dialog" tabindex="-1">
+            <button class="promo-popup-close" type="button" aria-label="Zavřít aktuální nabídku" data-promo-close>&times;</button>
+            <div class="promo-popup-card">
+                <div class="promo-popup-visual">
+                    <a class="promo-popup-link" href="#rezervace" aria-label="Přejít k rezervaci zvýhodněné procedury" data-promo-action>
+                        <img src="images/promo-akce.jpg" alt="Akce na procedury: permanentní make-up se slevou 20 %, Head Spa, masáže a kosmetika se slevou 15 %. Platnost od 1. listopadu do 31. prosince 2026." width="720" height="1280" decoding="async">
+                    </a>
+                </div>
+
+                <div class="promo-popup-content">
+                    <div class="promo-popup-brand" aria-hidden="true">
+                        <img src="images/logo-clean.jpg" alt="" width="64" height="64">
+                        <div>
+                            <span class="promo-popup-brand-name">Hoang Yen</span>
+                            <span class="promo-popup-brand-sub">Beauty &amp; Spa</span>
+                        </div>
+                    </div>
+
+                    <span class="promo-popup-eyebrow">Aktuální nabídka</span>
+                    <h2 class="promo-popup-title" id="promoPopupTitle">Speciální péče,<br> výjimečná cena</h2>
+                    <p class="promo-popup-copy">Dopřejte si svou oblíbenou proceduru za zvýhodněnou cenu.</p>
+
+                    <div class="promo-popup-offers" role="list" aria-label="Přehled slev">
+                        <div class="promo-popup-offer" role="listitem"><span>PMU</span><strong>−20 %</strong></div>
+                        <div class="promo-popup-offer" role="listitem"><span>Head Spa</span><strong>−15 %</strong></div>
+                        <div class="promo-popup-offer" role="listitem"><span>Masáže</span><strong>−15 %</strong></div>
+                        <div class="promo-popup-offer" role="listitem"><span>Kosmetika</span><strong>−15 %</strong></div>
+                    </div>
+
+                    <p class="promo-popup-validity">Platí 1. 11. – 31. 12. 2026</p>
+                    <a class="promo-popup-cta" href="#rezervace" data-promo-action>Rezervovat termín</a>
+                    <a class="promo-popup-phone" href="tel:+420722688168" data-promo-action>nebo zavolejte +420 722 688 168</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
          HEADER / NAVIGATION
     ============================================= -->
     <header class="header" id="header">
@@ -114,7 +156,6 @@
                 <a href="#services">Služby</a>
                 <a href="#cenik">Ceník</a>
                 <a href="#gallery">Galerie</a>
-                <a href="#akce">Akce</a>
                 <a href="#kontakt">Kontakt</a>
             </nav>
 
@@ -135,7 +176,6 @@
                 <a href="#services">Služby</a>
                 <a href="#cenik">Ceník</a>
                 <a href="#gallery">Galerie</a>
-                <a href="#akce">Akce</a>
                 <a href="#kontakt">Kontakt</a>
                 <a href="#rezervace" class="mobile-btn-rezervovat">Rezervovat termín</a>
                 <a href="tel:+420722688168" class="mobile-btn-call">
@@ -158,8 +198,8 @@
         <div class="hero-content">
             <div class="hero-brand">
                 <h1>
-                    <span class="hero-title-line">Hoang Yen</span>
-                    <span class="hero-title-sub">Beauty & Spa</span>
+                    <span class="hero-title-line">Beauty &amp; Spa</span>
+                    <span class="hero-title-sub">Hoang Yen</span>
                 </h1>
             </div>
             <p class="hero-subtitle fade-up">Krása &bull; Péče &bull; Relaxace</p>
@@ -176,13 +216,40 @@
         </div>
 
         <!-- Hero Scroll Indicator -->
-        <a href="#about" class="hero-scroll-indicator" aria-label="Scrollujte na obsah">
+        <a href="#vouchers" class="hero-scroll-indicator" aria-label="Scrollujte na dárkové vouchery">
             <span class="scroll-mouse">
                 <span class="scroll-wheel"></span>
             </span>
             <span class="scroll-text">Scrollujte</span>
             <svg class="scroll-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
+    </section>
+
+
+    <!-- ============================================
+         DÁRKOVÉ VOUCHERY
+    ============================================= -->
+    <section class="vouchers" id="vouchers">
+        <div class="container">
+            <div class="vouchers-grid">
+                <div class="vouchers-image fade-up">
+                    <img src="images/voucher.jpg" alt="Dárkové vouchery Hoang Yen Beauty & Spa" loading="lazy" width="720" height="1280">
+                </div>
+                <div class="vouchers-content fade-up">
+                    <span class="section-label">Dárky</span>
+                    <h2>Dárkové vouchery</h2>
+                    <p class="vouchers-tagline">&ldquo;Darujte krásu, relaxaci a chvíli jen pro ně.&rdquo;</p>
+                    <p>Hledáte ideální dárek pro vaše blízké? Darujte jim chvíli relaxace a péče v Hoang Yen Beauty & Spa. Naše dárkové vouchery jsou k dispozici pro všechny naše služby.</p>
+                    <div class="vouchers-badge">
+                        <span class="vouchers-discount">Nyní s 10% slevou</span>
+                        <span class="vouchers-validity">Platnost slevy: 1. 11. – 31. 12. 2026</span>
+                        <span class="vouchers-redeem">Uplatnění voucheru do 28. 2. 2027</span>
+                    </div>
+                    <p class="vouchers-note">Vouchery k zakoupení přímo v našem salonu.<br>Třída Osvobození 315, Příbram</p>
+                    <a href="tel:+420722688168" class="btn-primary">Koupit dárkový voucher</a>
+                </div>
+            </div>
+        </div>
     </section>
 
 
@@ -891,79 +958,6 @@
                         <span class="duration">120 min</span>
                         <span class="price">1 690 Kč</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================
-         AKTUÁLNÍ AKCE / PROMOTIONS
-    ============================================= -->
-    <section class="akce" id="akce">
-        <div class="container">
-            <div class="section-header fade-up">
-                <span class="section-label">Akce</span>
-                <h2>Aktuální akce</h2>
-                <p class="section-subtitle">Využijte speciální nabídku na naše služby</p>
-                <div class="gold-line"></div>
-            </div>
-            <div class="promo-layout fade-up">
-                <div class="promo-poster">
-                    <img src="images/promo-akce.jpg" alt="Aktuální nabídka Hoang Yen Beauty & Spa: sleva na permanentní make-up, Head Spa, masáže a kosmetiku" loading="lazy" width="720" height="1280">
-                </div>
-                <div class="promo-content">
-                    <div class="promo-grid">
-                        <a class="promo-card" href="#pmu">
-                            <span class="promo-name">Permanentní make-up</span>
-                            <span class="promo-detail">Pudrové obočí, rty a oční linky</span>
-                            <span class="promo-discount">−20 %</span>
-                        </a>
-                        <a class="promo-card" href="#headspa">
-                            <span class="promo-name">Head Spa</span>
-                            <span class="promo-detail">Relaxační péče o vlasy a pokožku hlavy</span>
-                            <span class="promo-discount">−15 %</span>
-                        </a>
-                        <a class="promo-card" href="#masaze">
-                            <span class="promo-name">Thajské masáže</span>
-                            <span class="promo-detail">Čas na odpočinek a regeneraci</span>
-                            <span class="promo-discount">−15 %</span>
-                        </a>
-                        <a class="promo-card" href="#kosmetika">
-                            <span class="promo-name">Kosmetická péče</span>
-                            <span class="promo-detail">Ošetření pleti podle vašich potřeb</span>
-                            <span class="promo-discount">−15 %</span>
-                        </a>
-                    </div>
-                    <p class="promo-validity">Platnost nabídky: 1. 11. – 31. 12. 2026</p>
-                    <a href="#rezervace" class="btn-primary promo-cta">Rezervovat termín</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================
-         DÁRKOVÉ VOUCHERY
-    ============================================= -->
-    <section class="vouchers" id="vouchers">
-        <div class="container">
-            <div class="vouchers-grid">
-                <div class="vouchers-image fade-up">
-                    <img src="images/voucher.jpg" alt="Dárkové vouchery Hoang Yen Beauty & Spa" loading="lazy" width="720" height="1280">
-                </div>
-                <div class="vouchers-content fade-up">
-                    <span class="section-label">Dárky</span>
-                    <h2>Dárkové vouchery</h2>
-                    <p class="vouchers-tagline">&ldquo;Darujte krásu, relaxaci a chvíli jen pro ně.&rdquo;</p>
-                    <p>Hledáte ideální dárek pro vaše blízké? Darujte jim chvíli relaxace a péče v Hoang Yen Beauty & Spa. Naše dárkové vouchery jsou k dispozici pro všechny naše služby.</p>
-                    <div class="vouchers-badge">
-                        <span class="vouchers-discount">Nyní s 10% slevou</span>
-                        <span class="vouchers-validity">Platnost slevy: 1. 11. – 31. 12. 2026</span>
-                        <span class="vouchers-redeem">Uplatnění voucheru do 28. 2. 2027</span>
-                    </div>
-                    <p class="vouchers-note">Vouchery k zakoupení přímo v našem salonu.<br>Třída Osvobození 315, Příbram</p>
-                    <a href="tel:+420722688168" class="btn-primary">Koupit dárkový voucher</a>
                 </div>
             </div>
         </div>

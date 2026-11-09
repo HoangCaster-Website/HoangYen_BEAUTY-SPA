@@ -583,8 +583,92 @@
                 if (intro && intro.parentNode) {
                     intro.parentNode.removeChild(intro);
                 }
+                window.dispatchEvent(new CustomEvent('hoangyen:intro-complete'));
             }, 850);
         }, duration);
+    }
+
+    /* -------------------------------------------------------------------------
+       WELCOME PROMOTION POPUP
+       ------------------------------------------------------------------------- */
+    function initPromotionPopup() {
+        var popup = qs('#promoPopup');
+        if (!popup) return;
+
+        var dialog = qs('.promo-popup-dialog', popup);
+        var closeButton = qs('.promo-popup-close', popup);
+        var actionLinks = qsa('[data-promo-action]', popup);
+        var closeControls = qsa('[data-promo-close]', popup);
+        var lastFocusedElement = null;
+        var closeTimer = null;
+
+        function openPopup() {
+            if (!popup.hidden || popup.classList.contains('active')) return;
+
+            lastFocusedElement = document.activeElement;
+            popup.hidden = false;
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            window.requestAnimationFrame(function () {
+                popup.classList.add('active');
+                if (closeButton) closeButton.focus();
+            });
+        }
+
+        function closePopup() {
+            if (popup.hidden) return;
+
+            popup.classList.remove('active');
+            popup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            window.clearTimeout(closeTimer);
+            closeTimer = window.setTimeout(function () {
+                popup.hidden = true;
+            }, prefersReducedMotion() ? 0 : 320);
+
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+        }
+
+        closeControls.forEach(function (control) {
+            control.addEventListener('click', closePopup);
+        });
+
+        actionLinks.forEach(function (link) {
+            link.addEventListener('click', closePopup);
+        });
+
+        popup.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closePopup();
+                return;
+            }
+
+            if (event.key === 'Tab') {
+                var focusable = qsa('button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])', dialog || popup);
+                if (!focusable.length) return;
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        if (qs('#pageIntro')) {
+            window.addEventListener('hoangyen:intro-complete', openPopup, { once: true });
+        } else {
+            window.setTimeout(openPopup, 250);
+        }
     }
 
     /* -------------------------------------------------------------------------
@@ -596,7 +680,7 @@
 
         indicator.addEventListener('click', function (e) {
             e.preventDefault();
-            var target = qs('#about');
+            var target = qs('#vouchers');
             if (target) {
                 var headerHeight = 75;
                 var targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
@@ -650,6 +734,7 @@
        ------------------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', function () {
         initPageIntro();
+        initPromotionPopup();
         initHeroScroll();
         initSubtleMotion();
         initHeroVisibility();
