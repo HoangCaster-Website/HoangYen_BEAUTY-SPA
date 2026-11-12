@@ -494,6 +494,24 @@
         var serviceInput = qs('#bookingService', form);
         var status = qs('#bookingStatus', form);
 
+        function validateOpeningDay() {
+            if (!dateInput) return;
+            if (!dateInput.value) {
+                dateInput.setCustomValidity('');
+                return;
+            }
+
+            var selectedParts = dateInput.value.split('-');
+            var selectedDate = new Date(
+                Number(selectedParts[0]),
+                Number(selectedParts[1]) - 1,
+                Number(selectedParts[2])
+            );
+            var isSunday = selectedDate.getDay() === 0;
+
+            dateInput.setCustomValidity(isSunday ? 'V neděli máme zavřeno. Vyberte prosím termín od pondělí do soboty.' : '');
+        }
+
         if (dateInput) {
             var today = new Date();
             var localToday = [
@@ -502,6 +520,8 @@
                 String(today.getDate()).padStart(2, '0')
             ].join('-');
             dateInput.min = localToday;
+            dateInput.addEventListener('change', validateOpeningDay);
+            dateInput.addEventListener('input', validateOpeningDay);
         }
 
         qsa('[data-booking-service]').forEach(function (link) {
@@ -519,6 +539,7 @@
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
+            validateOpeningDay();
             form.classList.add('was-validated');
 
             if (!form.checkValidity()) {

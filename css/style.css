@@ -1407,6 +1407,666 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
+   DOMÁCÍ PÉČE O PLEŤ / JANSSEN COSMETICS
+   -------------------------------------------------------------------------- */
+.homecare-section {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(216, 186, 122, 0.2), transparent 28rem),
+        linear-gradient(145deg, #fffaf0 0%, #f6ead7 100%);
+}
+
+.homecare-section::before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(184, 137, 62, 0.16);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.homecare-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+    gap: clamp(36px, 6vw, 78px);
+    align-items: center;
+}
+
+.homecare-copy {
+    max-width: 680px;
+}
+
+.homecare-copy > p {
+    color: var(--text-body);
+    line-height: 1.8;
+}
+
+.homecare-copy .homecare-lead {
+    margin-bottom: 10px;
+    color: var(--dark-brown);
+    font-family: var(--font-subheading);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.homecare-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.homecare-benefits li {
+    position: relative;
+    min-height: 58px;
+    padding: 16px 16px 16px 46px;
+    border: 1px solid rgba(184, 137, 62, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.58);
+    color: var(--brown);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.homecare-benefits li::before {
+    content: '✓';
+    position: absolute;
+    top: 16px;
+    left: 17px;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gold-metallic);
+    color: var(--dark-brown);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.homecare-highlight {
+    margin: 0 0 22px;
+    padding: 20px 22px;
+    border-left: 3px solid var(--gold);
+    background: rgba(255, 255, 255, 0.62);
+    box-shadow: 0 14px 40px rgba(76, 48, 27, 0.08);
+}
+
+.homecare-highlight strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dark-brown);
+    font-family: var(--font-subheading);
+    font-size: 1.08rem;
+}
+
+.homecare-highlight p {
+    color: var(--text-body);
+    line-height: 1.65;
+}
+
+.homecare-copy .homecare-offer {
+    color: var(--gold-ink);
+    font-weight: 600;
+}
+
+.homecare-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.homecare-actions .btn-outline {
+    margin-top: 0;
+}
+
+.homecare-feature {
+    position: relative;
+    height: min(690px, 72vw);
+    min-height: 540px;
+    overflow: hidden;
+    border: 1px solid rgba(184, 137, 62, 0.28);
+    border-radius: 160px 160px 24px 24px;
+    background: var(--cream);
+    box-shadow: 0 28px 75px rgba(65, 39, 23, 0.18);
+}
+
+.homecare-feature::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 58%, rgba(31, 19, 13, 0.76) 100%);
+    pointer-events: none;
+}
+
+.homecare-feature img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% center;
+}
+
+.homecare-feature figcaption {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1;
+    color: var(--white);
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.homecare-media-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: clamp(46px, 7vw, 82px);
+}
+
+.homecare-media-item {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(184, 137, 62, 0.22);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 16px 42px rgba(58, 36, 22, 0.11);
+}
+
+.homecare-media-item img,
+.homecare-media-item video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #1f1712;
+    object-fit: cover;
+}
+
+.homecare-media-item figcaption {
+    display: flex;
+    align-items: center;
+    min-height: 58px;
+    padding: 12px 15px;
+    color: var(--brown);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.homecare-closing {
+    max-width: 760px;
+    margin: 42px auto 0;
+    color: var(--brown);
+    font-family: var(--font-subheading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Product-first editorial showcase. */
+.homecare-section {
+    padding: 132px 0 124px;
+    background:
+        linear-gradient(90deg, rgba(64, 78, 66, 0.035) 1px, transparent 1px),
+        linear-gradient(#f7f1e6, #fffaf1 46%, #f4ead9);
+    background-size: min(8vw, 96px) 100%, auto;
+}
+
+.homecare-section::before {
+    top: 9%;
+    right: -180px;
+    width: 480px;
+    height: 480px;
+    border-color: rgba(62, 77, 65, 0.12);
+}
+
+.product-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(410px, 0.96fr);
+    gap: clamp(54px, 7vw, 104px);
+    align-items: center;
+}
+
+.product-visuals {
+    position: relative;
+    min-width: 0;
+    height: 720px;
+}
+
+.product-visual {
+    position: absolute;
+    overflow: hidden;
+    border: 8px solid rgba(255, 252, 245, 0.96);
+    background: #eee7db;
+    box-shadow: 0 24px 70px rgba(43, 31, 23, 0.18);
+}
+
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-visual-main {
+    top: 54px;
+    bottom: 10px;
+    left: 0;
+    z-index: 1;
+    width: 72%;
+    border-radius: 190px 190px 30px 30px;
+}
+
+.product-visual-main img {
+    object-position: 50% 48%;
+}
+
+.product-visual-main::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 63%, rgba(25, 29, 24, 0.8));
+    pointer-events: none;
+}
+
+.product-visual-main figcaption {
+    position: absolute;
+    right: 26px;
+    bottom: 26px;
+    left: 26px;
+    z-index: 1;
+    color: #fffaf1;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.05;
+}
+
+.product-visual-main figcaption span {
+    display: block;
+    margin-bottom: 6px;
+    color: #ead7a9;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.product-visual-detail-one {
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 39%;
+    height: 300px;
+    border-radius: 28px 28px 120px 28px;
+}
+
+.product-visual-detail-one img {
+    object-position: 50% 34%;
+}
+
+.product-visual-detail-two {
+    right: 4px;
+    bottom: 0;
+    z-index: 3;
+    width: 43%;
+    height: 330px;
+    border-radius: 120px 28px 28px 28px;
+}
+
+.product-visual-detail-two img {
+    object-position: 50% 57%;
+}
+
+.product-seal {
+    position: absolute;
+    top: 304px;
+    right: 27%;
+    z-index: 4;
+    display: grid;
+    place-content: center;
+    width: 126px;
+    height: 126px;
+    border: 1px solid rgba(237, 215, 165, 0.72);
+    border-radius: 50%;
+    background: #405044;
+    box-shadow: 0 16px 38px rgba(31, 42, 34, 0.28), inset 0 0 0 7px #405044, inset 0 0 0 8px rgba(237, 215, 165, 0.52);
+    color: #fff9ed;
+    text-align: center;
+    transform: rotate(-7deg);
+}
+
+.product-seal strong,
+.product-seal span {
+    display: block;
+}
+
+.product-seal strong {
+    color: #ead7a9;
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    line-height: 1;
+}
+
+.product-seal span {
+    margin-top: 4px;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.product-content {
+    max-width: 570px;
+}
+
+.product-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #57685a;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.product-eyebrow::before {
+    content: '';
+    width: 34px;
+    height: 1px;
+    background: #8c9b86;
+}
+
+.product-content h2 {
+    margin: 18px 0 24px;
+    color: var(--dark-brown);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 4.75rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+    text-wrap: balance;
+}
+
+.product-content h2 em {
+    color: #536355;
+    font-weight: 400;
+}
+
+.product-lead {
+    max-width: 58ch;
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.product-needs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 30px 0 28px;
+    border-top: 1px solid rgba(75, 91, 77, 0.22);
+    border-left: 1px solid rgba(75, 91, 77, 0.22);
+}
+
+.product-need {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 90px;
+    padding: 18px 15px;
+    border-right: 1px solid rgba(75, 91, 77, 0.22);
+    border-bottom: 1px solid rgba(75, 91, 77, 0.22);
+}
+
+.product-need > span {
+    color: #9b7336;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    line-height: 1.1;
+}
+
+.product-need strong,
+.product-need small {
+    display: block;
+}
+
+.product-need strong {
+    margin-bottom: 4px;
+    color: var(--dark-brown);
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.product-need small {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+.product-consultation {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.product-consultation-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(154, 113, 50, 0.36);
+    border-radius: 50%;
+    color: #9a7132;
+    font-size: 1.1rem;
+}
+
+.product-consultation strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--dark-brown);
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+}
+
+.product-consultation p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.product-client-offer {
+    padding: 18px 20px;
+    border-left: 3px solid #526356;
+    background: rgba(74, 92, 77, 0.085);
+}
+
+.product-client-offer span {
+    display: block;
+    margin-bottom: 4px;
+    color: #4e6252;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.product-client-offer p {
+    color: var(--brown);
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
+    margin-top: 26px;
+}
+
+.product-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(84, 101, 87, 0.45);
+    color: #485a4c;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.product-text-link span {
+    transition: transform 0.25s ease;
+}
+
+.product-text-link:hover span,
+.product-text-link:focus-visible span {
+    transform: translateX(4px);
+}
+
+.product-reels {
+    margin-top: 128px;
+    padding-top: 66px;
+    border-top: 1px solid rgba(83, 99, 85, 0.22);
+}
+
+.product-reels-heading {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.8fr) minmax(280px, 0.7fr);
+    gap: 60px;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.product-reels-heading h3 {
+    margin-top: 10px;
+    color: var(--dark-brown);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.4vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+}
+
+.product-reels-heading > p {
+    max-width: 52ch;
+    justify-self: end;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.product-reels-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    outline: none;
+}
+
+.product-reels-track:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 8px;
+}
+
+.product-reel {
+    min-width: 0;
+}
+
+.product-reel video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 14;
+    border-radius: 28px 28px 8px 8px;
+    background: #253027;
+    box-shadow: 0 18px 46px rgba(45, 36, 27, 0.14);
+    object-fit: cover;
+}
+
+.product-reel figcaption {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 13px;
+    padding: 17px 4px 0;
+}
+
+.product-reel figcaption > span {
+    color: #9b7336;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.product-reel strong,
+.product-reel small {
+    display: block;
+}
+
+.product-reel strong {
+    margin-bottom: 3px;
+    color: var(--dark-brown);
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+}
+
+.product-reel small {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.45;
+}
+
+.masaze-discount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: fit-content;
+    max-width: 100%;
+    margin: -10px auto 38px;
+    padding: 13px 22px;
+    border: 1px solid rgba(184, 137, 62, 0.32);
+    border-radius: var(--border-radius-full);
+    background: linear-gradient(135deg, rgba(255, 249, 237, 0.96), rgba(239, 218, 170, 0.9));
+    box-shadow: 0 12px 30px rgba(79, 48, 28, 0.1);
+    color: var(--brown);
+}
+
+.masaze-discount span {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.masaze-discount strong {
+    color: var(--gold-ink);
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+}
+
+.booking-field-note {
+    display: block;
+    margin-top: 7px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.72rem;
+}
+
+/* --------------------------------------------------------------------------
    15. VIDEO SECTION
    -------------------------------------------------------------------------- */
 .video-section {
@@ -4048,6 +4708,39 @@ button:focus-visible,
 }
 
 @media (max-width: 1100px) {
+    .homecare-intro {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+        gap: 40px;
+    }
+
+    .homecare-media-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .product-showcase {
+        grid-template-columns: minmax(0, 0.96fr) minmax(390px, 1.04fr);
+        gap: 44px;
+    }
+
+    .product-visuals {
+        height: 650px;
+    }
+
+    .product-visual-detail-one {
+        height: 270px;
+    }
+
+    .product-visual-detail-two {
+        height: 295px;
+    }
+
+    .product-seal {
+        top: 278px;
+        right: 25%;
+        width: 112px;
+        height: 112px;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -4067,6 +4760,26 @@ button:focus-visible,
 }
 
 @media (max-width: 900px) {
+    .product-showcase {
+        grid-template-columns: 1fr;
+        gap: 66px;
+    }
+
+    .product-visuals {
+        width: min(100%, 650px);
+        margin: 0 auto;
+    }
+
+    .product-content {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .product-reels-heading {
+        grid-template-columns: minmax(280px, 0.9fr) minmax(260px, 0.7fr);
+        gap: 34px;
+    }
+
     .voucher-promo {
         grid-template-columns: 1fr;
     }
@@ -4082,6 +4795,117 @@ button:focus-visible,
 }
 
 @media (max-width: 768px) {
+    .homecare-section {
+        padding: 88px 0;
+    }
+
+    .homecare-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .homecare-copy {
+        max-width: none;
+    }
+
+    .homecare-feature {
+        width: min(100%, 480px);
+        height: min(690px, 136vw);
+        min-height: 500px;
+        margin: 0 auto;
+        border-radius: 120px 120px 22px 22px;
+    }
+
+    .homecare-media-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-showcase {
+        gap: 54px;
+    }
+
+    .product-visuals {
+        height: 550px;
+    }
+
+    .product-visual {
+        border-width: 6px;
+    }
+
+    .product-visual-main {
+        top: 40px;
+        width: 73%;
+        border-radius: 130px 130px 24px 24px;
+    }
+
+    .product-visual-detail-one {
+        width: 38%;
+        height: 220px;
+        border-radius: 22px 22px 86px 22px;
+    }
+
+    .product-visual-detail-two {
+        width: 43%;
+        height: 240px;
+        border-radius: 86px 22px 22px 22px;
+    }
+
+    .product-seal {
+        top: 224px;
+        right: 25%;
+        width: 98px;
+        height: 98px;
+    }
+
+    .product-seal strong {
+        font-size: 1.4rem;
+    }
+
+    .product-content h2 {
+        font-size: clamp(2.8rem, 10vw, 4.2rem);
+    }
+
+    .product-reels {
+        margin-top: 92px;
+        padding-top: 48px;
+    }
+
+    .product-reels-heading {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+
+    .product-reels-heading > p {
+        justify-self: start;
+    }
+
+    .product-reels-track {
+        grid-auto-columns: minmax(250px, 78vw);
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        gap: 14px;
+        margin-inline: calc(var(--container-padding) * -1);
+        padding: 4px var(--container-padding) 20px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-padding-inline: var(--container-padding);
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(151, 109, 47, 0.5) transparent;
+    }
+
+    .product-reel {
+        scroll-snap-align: start;
+    }
+
+    .masaze-discount {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+        border-radius: 18px;
+    }
+
     .hero {
         min-height: 92svh;
         padding-top: 112px;
@@ -4181,6 +5005,105 @@ button:focus-visible,
 }
 
 @media (max-width: 430px) {
+    .homecare-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .homecare-feature {
+        min-height: 470px;
+        border-radius: 96px 96px 20px 20px;
+    }
+
+    .homecare-media-item figcaption {
+        min-height: 54px;
+        padding: 10px 11px;
+        font-size: 0.7rem;
+    }
+
+    .homecare-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .homecare-actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-visuals {
+        height: 490px;
+    }
+
+    .product-visual-main {
+        width: 75%;
+    }
+
+    .product-visual-main figcaption {
+        display: none;
+    }
+
+    .product-visual-detail-one {
+        width: 38%;
+        height: 194px;
+    }
+
+    .product-visual-detail-two {
+        width: 44%;
+        height: 214px;
+    }
+
+    .product-seal {
+        top: 200px;
+        right: 23%;
+        width: 88px;
+        height: 88px;
+    }
+
+    .product-seal span {
+        font-size: 0.48rem;
+    }
+
+    .product-content h2 {
+        margin-top: 15px;
+        font-size: clamp(2.55rem, 13vw, 3.45rem);
+    }
+
+    .product-lead {
+        font-size: 0.92rem;
+    }
+
+    .product-needs {
+        grid-template-columns: 1fr;
+    }
+
+    .product-need {
+        min-height: 76px;
+        padding-block: 15px;
+    }
+
+    .product-consultation {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .product-consultation-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .product-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .product-actions .btn-primary,
+    .product-text-link {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
     .section-header h2 {
         font-size: clamp(2.15rem, 12vw, 3rem);
     }

@@ -1,0 +1,41 @@
+{
+  "contract": "Present Janssen Cosmetics as a refined, product-first home-care showcase for salon clients, with product imagery first, skin needs and consultation second, and deferred supporting videos last; keep the existing salon identity and remain responsive from 390px to 1440px.",
+  "contractDetails": {
+    "surface": "Janssen Cosmetics product-introduction section on the Hoang Yen Beauty & Spa website",
+    "userJob": "Understand the available professional home-care products and request a tailored recommendation",
+    "primaryAction": "Open the prefilled WhatsApp consultation link",
+    "hierarchy": "Product imagery first, product purpose and skin needs second, consultation and client offer third, supporting video reels last",
+    "tone": "Refined editorial skincare showcase aligned with the existing cream, brown and gold salon identity",
+    "memorableDetail": "Layered product still-life with a deep green professional-care seal",
+    "constraints": "Static HTML/CSS/JavaScript, existing assets only, responsive from 390px to 1440px, keyboard-focusable horizontal reels, videos deferred until playback"
+  },
+  "targetViewports": ["390x844", "1440x900"],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Product images have descriptive alternative text, videos have controls and accessible labels, the horizontal reel track is keyboard focusable with a visible focus ring, and actions remain visible text links."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Rendered at 390x844 and 1440x900 with no horizontal page overflow; the desktop two-column showcase becomes a single column and the video grid becomes a touch-scroll reel on mobile."
+  },
+  "contentStates": {
+    "loading": { "status": "not-applicable", "reason": "The section uses local static copy and images; videos intentionally remain poster-only until the visitor presses play." },
+    "empty": { "status": "not-applicable", "reason": "Product content and local media are authored directly in the page and are not data-driven." },
+    "error": { "status": "not-applicable", "reason": "There is no remote data request or transactional state inside this product-introduction section." },
+    "partial": { "status": "not-applicable", "reason": "All product copy and media ship with the static site as one release." },
+    "success": { "status": "pass", "evidence": "The completed section presents the product range, consultation value, salon-client offer, WhatsApp action and three supporting videos." },
+    "permission": { "status": "not-applicable", "reason": "Viewing the product section requires no account, device permission or authenticated access." }
+  },
+  "renderedEvidence": [
+    {
+      "viewport": "390x844",
+      "artifact": "screenshots/product-showcase-mobile-390x844.png",
+      "observation": "Layered product still-life remains legible without clipped captions; content becomes one column and no page-level overflow is present."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "screenshots/product-showcase-desktop-1440x900.png",
+      "observation": "Product imagery and editorial copy form a balanced two-column first viewport with clear skin-need scanning and visual continuity with the site header."
+    }
+  ]
+}
