@@ -621,8 +621,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-info {
     display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    align-items: baseline;
+    max-width: 100%;
+    gap: 0.45em;
     font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -634,9 +635,21 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(216, 186, 122, 0.25);
 }
 
+.hero-info-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0 0.65rem;
+}
+
 .hero-info-divider {
-    color: var(--gold);
+    color: var(--gold-light);
     font-weight: bold;
+}
+
+.hero-info-hours {
+    font-variant-numeric: tabular-nums;
 }
 
 /* --------------------------------------------------------------------------
@@ -4795,6 +4808,40 @@ button:focus-visible,
 }
 
 @media (max-width: 768px) {
+    .hero-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 0;
+        border: 0;
+        background: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        letter-spacing: 0.015em;
+        text-transform: none;
+        text-shadow: 0 1px 10px rgba(18, 11, 8, 0.6);
+    }
+
+    .hero-info-street {
+        color: var(--ivory);
+        font-family: var(--font-subheading);
+        font-size: 1.65rem;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: normal;
+        text-wrap: balance;
+    }
+
+    .hero-info-comma {
+        display: none;
+    }
+
+    .hero-info-details {
+        column-gap: 0.45rem;
+    }
+
     .homecare-section {
         padding: 88px 0;
     }
@@ -4907,8 +4954,23 @@ button:focus-visible,
     }
 
     .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: 1fr auto;
+        row-gap: 24px;
         min-height: 92svh;
         padding-top: 112px;
+        padding-bottom: 26px;
+    }
+
+    .hero-buttons {
+        margin-bottom: 32px;
+    }
+
+    .hero-scroll-indicator {
+        position: relative;
+        bottom: auto;
+        justify-self: start;
     }
 
     .hero-media {
@@ -5106,14 +5168,6 @@ button:focus-visible,
 
     .section-header h2 {
         font-size: clamp(2.15rem, 12vw, 3rem);
-    }
-
-    .hero-info {
-        gap: 7px;
-        padding-inline: 12px;
-        font-size: 0.7rem;
-        letter-spacing: 0.075em;
-        white-space: nowrap;
     }
 
     .footer-credit {
